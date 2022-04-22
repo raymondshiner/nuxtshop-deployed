@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from "nuxt3";
+import { defineNuxtConfig } from "nuxt3"
 
 export default defineNuxtConfig({
   publicRuntimeConfig: {
@@ -6,7 +6,11 @@ export default defineNuxtConfig({
     SHOPIFY_STOREFRONT_ACCESS_TOKEN:
       process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
   },
-  buildModules: ["@pinia/nuxt", "@vueuse/nuxt"],
+  buildModules: [
+    "@pinia/nuxt",
+    "@vueuse/nuxt",
+    ["@layer0/nuxt/module", { layer0SourceMaps: true }],
+  ],
   build: {
     transpile: [
       "@apollo/client",
@@ -23,4 +27,4 @@ export default defineNuxtConfig({
     },
   },
   css: ["~/assets/css/fonts.css", "~/assets/css/global.css"],
-});
+})

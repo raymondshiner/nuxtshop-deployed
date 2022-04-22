@@ -21,7 +21,6 @@
 import { navLinks } from "~/constants"
 import { useShopStore } from "~/stores/shop"
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core"
-import Prefetch from "@layer0/vue/Prefetch"
 
 const shopStore = useShopStore()
 const menuOpen = computed(() => shopStore.menuOpen)
@@ -32,6 +31,16 @@ const isMobileUI = breakpoints.smaller("md")
 const menu = ref(null)
 
 watch(route, () => (isMobileUI ? shopStore.toggleMenu(false) : null))
+</script>
+
+<script>
+import Prefetch from "@layer0/vue/prefetch"
+
+export default {
+  components: {
+    Prefetch,
+  },
+}
 </script>
 
 <style lang="postcss">
